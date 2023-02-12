@@ -36,28 +36,12 @@ struct Devices{
 }
 ```
 
-- The information of a processed token
-
-```
-struct TokenProcessed{
-        bytes32 UID;
-        address user;
-        bool access;
-}
-```
-
 ### 2. Variables
 
 - Admins of the system
 
 ```
  address [] admins;
-```
-
-- Array of all tokens had been processed
-
-```
- TokenProcessed [] public TokensProcessed;
 ```
 
 - Array of all tokens issued
@@ -138,14 +122,3 @@ function delDev(address fog) public onlyAdmin
 function requestAuthentication(address device,address fog) public
 ```
 
-- Accept user by admin
-
-```
-function AcceptUserByAdmin(bytes32 UID, address user, bool access) public onlyAdmin
-```
-
-- Validate token
-
-```
-function validateToken(bytes32 UID) public view returns(bool)
-```
