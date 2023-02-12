@@ -14,15 +14,8 @@ contract AuthenticationContract{
         address dev;
         address fog;
     }
-    struct TokenProcessed{
-        bytes32 UID;
-        address user;
-        bool access;
-    }
 
-    TokenProcessed [] public TokensProcessed ; // array of all tokens had been processed
     Token [] public Tokens ; // array of all tokens issued
-
 
     // mapping for users and their accessable devices
     // Một user có thể access đến nhiều devices
@@ -170,20 +163,6 @@ contract AuthenticationContract{
             }
         }
     }
-
-    function AcceptUserByAdmin(bytes32 UID, address user, bool access) public onlyAdmin{
-        TokensProcessed.push(TokenProcessed(UID,user,access));
-        emit TokenProcessedEvent(UID,user,access);
-    }
-
-    function validateToken(bytes32 UID) public view returns(bool){
-        for(uint256 i = 0;i< TokensProcessed.length;i++){
-            if(TokensProcessed[i].UID == UID && TokensProcessed[i].user == msg.sender){
-                return true;
-            }
-        } 
-        return false;
-    } 
 
      // authentication events
     event Authenticated(address user, address device, address fog); 
