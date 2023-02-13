@@ -2,8 +2,7 @@
 
 ## Introduction
 
-- This contract will perform the action of authentication , accept and validate token
-  by IoT devices using Blockchain-enabled Fog Nodes
+- This contract will perform the user authentication of IoT devices using Blockchain-enabled Fog Nodes
 
 ## How to use
 
